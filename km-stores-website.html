@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KM Stores | Aanapadi, Kattappana</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c5e3b; /* Deep green for fresh groceries */
+            --secondary-color: #c9933b; /* Warm gold for coffee bar */
+            --dark-text: #333333;
+            --light-bg: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* --- Header & Hero Section --- */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('http://googleusercontent.com/image_collection/image_retrieval/9284343021962386029_0') center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 span {
+            color: var(--secondary-color);
+        }
+
+        .hero p.location {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ddd;
+        }
+
+        .hero p.tagline {
+            font-size: 1.5rem;
+            font-weight: 300;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .delivery-badge {
+            background-color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        /* --- Info Bar --- */
+        .info-bar {
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .info-item i {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+        }
+
+        .info-item h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        /* --- Departments Section --- */
+        .departments {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* --- Contact & Location Section --- */
+        .contact-section {
+            padding: 60px 20px;
+            background-color: #fff;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .contact-info {
+            padding: 20px;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .info-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .info-list li {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-list i {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin-top: 3px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebe57;
+            transform: translateY(-2px);
+        }
+
+        .btn-instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            box-shadow: 0 4px 10px rgba(220, 39, 67, 0.3);
+        }
+
+        .btn-instagram:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .info-bar { flex-direction: column; align-items: center; text-align: center; }
+            .info-item { flex-direction: column; }
+            .contact-section { grid-template-columns: 1fr; }
+            .map-container { min-height: 300px; }
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content h2 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>KM <span>Stores</span></h1>
+        <p class="location"><i class="fas fa-map-marker-alt"></i> Aanapaddi, Mullakaramedu P.O, Kattappana, Idukki</p>
+        <p class="tagline">Your premium destination for everyday needs, fresh produce, and a relaxing coffee break.</p>
+        <div class="delivery-badge">
+            <i class="fas fa-motorcycle"></i> Home Delivery Available (5km Radius)
+        </div>
+    </section>
+
+    <!-- Experience & Service Bar -->
+    <section class="info-bar">
+        <div class="info-item">
+            <i class="fas fa-user-tie"></i>
+            <div>
+                <h3>Expert Staff</h3>
+                <p>Guided by 6 years of professional sales experience</p>
+            </div>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-shopping-basket"></i>
+            <div>
+                <h3>All-In-One Shop</h3>
+                <p>Groceries, Stationery & Fresh Vegetables</p>
+            </div>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-mug-hot"></i>
+            <div>
+                <h3>Coffee & Coolbar</h3>
+                <p>Refresh and relax while you shop</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Showcase -->
+    <section class="departments">
+        <h2 class="section-title">Explore Our Store</h2>
+        <div class="grid">
+            
+            <!-- Coffee Bar Card -->
+            <div class="card">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/16125621128613114468_0" alt="Modern Coffee Bar">
+                <div class="card-content">
+                    <h3>Premium Coffee & Coolbar</h3>
+                    <p>Enjoy freshly brewed coffee, chilled beverages, and tasty snacks in a comfortable, modern setting.</p>
+                </div>
+            </div>
+
+            <!-- Fresh Vegetables Card -->
+            <div class="card">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/17811480004769098338_0" alt="Fresh Vegetables Display">
+                <div class="card-content">
+                    <h3>Fresh Vegetables</h3>
+                    <p>Farm-fresh vegetables handpicked daily to ensure the best quality and health for your family.</p>
+                </div>
+            </div>
+
+            <!-- Grocery & Stationery Card -->
+            <div class="card">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/9284343021962386029_0" alt="Grand Grocery Interior">
+                <div class="card-content">
+                    <h3>Groceries & Stationery</h3>
+                    <p>From premium daily staples and household groceries to essential office and school stationery items.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section class="contact-section">
+        <div class="contact-info">
+            <h2>Visit Us</h2>
+            <p style="margin-bottom: 25px; font-size: 1.1rem;">Whether you are picking up daily groceries or stopping by for a relaxing coffee, we are here to serve you with 6 years of trusted experience.</p>
+            
+            <ul class="info-list">
+                <li>
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Operating Hours</strong><br>
+                        Monday – Sunday: 7:00 AM – 11:00 PM
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <strong>Call Us</strong><br>
+                        +91 7012507043
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong><br>
+                        info@kmstores.in
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Location</strong><br>
+                        Aanapaddi, Mullakaramedu P.O, Kattappana, Idukki, Kerala
+                    </div>
+                </li>
+            </ul>
+
+            <div class="action-buttons">
+                <!-- WhatsApp Chat Button -->
+                <a href="https://wa.me/917012507043?text=Hello%20KM%20Stores,%20I%20would%20like%20to%20place%20an%20order%20for%20home%20delivery." target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+                
+                <!-- Instagram Link for Marketing/Offers -->
+                <a href="#" target="_blank" class="btn btn-instagram">
+                    <i class="fab fa-instagram"></i> Follow for Offers
+                </a>
+            </div>
+        </div>
+
+        <!-- Interactive Google Map -->
+        <div class="map-container">
+            <iframe 
+                src="https://maps.google.com/maps?q=Aanapaddi,+Kattappana,+Idukki&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h2>KM Stores</h2>
+            <p><i class="fas fa-map-pin"></i> Aanapaddi, Mullakaramedu P.O, Kattappana, Idukki</p>
+            <p><i class="fas fa-clock"></i> Open Daily | Exceptional Service Guaranteed</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #bbb;">
+                &copy; 2026 KM Stores. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
